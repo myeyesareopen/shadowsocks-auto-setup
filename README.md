@@ -23,7 +23,7 @@
 
 ```bash
 # 下载脚本
-wget -O ss-server.sh https://raw.githubusercontent.com/yourname/repo/main/deploy-ss.sh
+wget -O ss-server.sh [https://raw.githubusercontent.com/yourname/repo/main/deploy-ss.sh](https://raw.githubusercontent.com/myeyesareopen/shadowsocks-auto-setup/refs/heads/main/ss-server.sh)
 
 # 授予执行权限
 chmod +x ss-server.sh
