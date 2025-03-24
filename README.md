@@ -31,8 +31,7 @@ chmod +x ss-server.sh
 # 运行脚本
 ./ss-server.sh
 
-```markdown
-
+```
 ## 配置参数
 
 | 变量 | 默认值 | 说明 |
