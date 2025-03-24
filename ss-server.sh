@@ -3,7 +3,7 @@
 # Shadowsocks-libev 一键安装脚本
 # 配置参数：
 PORT=1080
-PASSWORD="6mXy8P9vJq3ZbLkG7RcNfDhW2sTg4Y5B"
+PASSWORD="6mXy8P9a"
 METHOD="aes-256-gcm"
 CONFIG_FILE="/etc/shadowsocks-libev/config.json"
 
