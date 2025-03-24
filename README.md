@@ -36,8 +36,8 @@ chmod +x ss-server.sh
 
 | 变量 | 默认值 | 说明 |
 |------|--------|------|
-| `PORT` | 1080 | 监听端口 |
-| `PASSWORD` | 6mXy8P9vJq3ZbLkG7RcNfDhW2sTg4Y5B | 连接密码 |
+| `PORT` | 1080 | 监听端口（安全起见请修改） |
+| `PASSWORD` | 6mXy8P9a | 连接密码(必须修改成自己的密码) |
 | `METHOD` | aes-256-gcm | 加密协议 |
 | `CONFIG_FILE` | /etc/shadowsocks-libev/config.json | 配置文件路径 |
 
