@@ -1,18 +1,29 @@
 #!/bin/bash
 
-# Shadowsocks-libev 一键安装脚本
-# 配置参数：
+# 默认配置参数
 PORT=1080
 PASSWORD="6mXy8P9a"
 METHOD="aes-256-gcm"
 CONFIG_FILE="/etc/shadowsocks-libev/config.json"
 
+# 解析命令行参数
+while getopts ":p:k:m:" opt; do
+  case $opt in
+    p) PORT="$OPTARG"
+    ;;
+    k) PASSWORD="$OPTARG"
+    ;;
+    m) METHOD="$OPTARG"
+    ;;
+    \?) echo "无效的选项: -$OPTARG" >&2
+    ;;
+  esac
+done
+
 echo "正在更新软件源..."
 sudo apt update -qq
-
 echo "安装 shadowsocks-libev..."
 sudo apt install -y shadowsocks-libev qrencode ufw
-
 echo "创建配置文件..."
 sudo mkdir -p /etc/shadowsocks-libev
 sudo tee $CONFIG_FILE > /dev/null <<EOL
@@ -24,20 +35,16 @@ sudo tee $CONFIG_FILE > /dev/null <<EOL
     "fast_open": true
 }
 EOL
-
 echo "配置防火墙..."
 sudo ufw allow $PORT/tcp
 sudo ufw --force enable
-
 echo "启用并启动服务..."
 sudo systemctl stop shadowsocks-libev-server@config.service 2>/dev/null
 sudo systemctl start shadowsocks-libev-server@config
 sudo systemctl enable shadowsocks-libev-server@config
-
 echo "验证服务状态..."
 sleep 2
 systemctl status shadowsocks-libev-server@config --no-pager
-
 echo "生成连接二维码..."
 CONFIG_STR=$(echo -n "$METHOD:$PASSWORD@$(curl -4s ifconfig.me):$PORT" | base64 -w 0)
 echo "ss://$CONFIG_STR" | qrencode -t UTF8
