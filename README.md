@@ -90,7 +90,7 @@ sudo systemctl stop shadowsocks-libev-server@config
 2. 生产环境务必修改密码和端口
 3. 确保服务商安全组放行相应端口
 4. IPv4/IPv6 双栈环境可能需要额外配置
-5. 客户端需支持 `aes-256-gcm` 加密方式
+5. 客户端需支持 `aes-256-gcm` 加密方式，否则请使用其他加密算法如chacha20-ietf-poly1305
 
 ## 卸载说明
 
