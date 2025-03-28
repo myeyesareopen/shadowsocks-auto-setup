@@ -29,7 +29,12 @@ wget -O ss-server.sh https://raw.githubusercontent.com/myeyesareopen/shadowsocks
 chmod +x ss-server.sh
 
 # 运行脚本
-./ss-server.sh
+./ss-server.sh -p 1080 -k 6mXy8P9a -m aes-256-gcm
+
+# -p PORT：监听端口
+# -k PASSWORK：连接使用的密码
+# -m METHOD：加密算法 
+# 如不配置将使用以上默认值
 
 ```
 ## 配置参数
